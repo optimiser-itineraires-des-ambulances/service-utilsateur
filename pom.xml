@@ -143,6 +143,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>service-user-docker</finalName>
     </build>
 
 </project>

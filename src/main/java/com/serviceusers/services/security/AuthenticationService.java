@@ -24,7 +24,7 @@ public class AuthenticationService {
         user.setLastName(request.getLastName());
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-
+        if (request.getPhoneNumber() != null) user.setPhoneNumber(request.getPhoneNumber());
         user.setRole(request.getRole());
 
         user = userRepository.save(user);
