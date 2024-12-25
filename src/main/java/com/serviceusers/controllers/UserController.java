@@ -12,6 +12,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     private final UserDetailsServiceImp userDetailsServiceImp;
@@ -29,5 +30,11 @@ public class UserController {
     @PatchMapping("admin/users/{id}")
     public ResponseEntity<User> editUserById(@PathVariable Long id , @RequestBody UserDTO userDTO){
         return ResponseEntity.ok(userDetailsServiceImp.editUserById(id,userDTO));
+    }
+
+    // Endpoint pour récupérer le total des utilisateurs
+    @GetMapping("/total")
+    public long getTotalUsers() {
+        return userDetailsServiceImp.getTotalUsers();
     }
 }

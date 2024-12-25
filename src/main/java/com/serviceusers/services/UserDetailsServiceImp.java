@@ -42,4 +42,9 @@ public class UserDetailsServiceImp implements UserDetailsService {
         return userRepository.save(user);
     }
 
+    // Méthode pour obtenir le total des utilisateurs
+    public long getTotalUsers() {
+        return userRepository.count(); // Utilise la méthode count() de JpaRepository
+    }
+
 }
