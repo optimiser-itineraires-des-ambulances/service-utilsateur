@@ -42,4 +42,24 @@ public class UserController {
     public long getTotalUsers() {
         return userDetailsServiceImp.getTotalUsers();
     }
+
+
+    // Créer un nouvel user
+    @PostMapping("/admin/users")
+    public ResponseEntity<User> addUser(@RequestBody User hopital) {
+        User createdHopital = userDetailsServiceImp.addUser(hopital);
+        return ResponseEntity.ok(createdHopital);
+    }
+
+
+    // Supprimer un user par son ID
+
+    @DeleteMapping("/admin/users/{id}")
+    public ResponseEntity<Void> deleteHopital(@PathVariable Long id) {
+        userDetailsServiceImp.deleteUser(id); // Call the instance method
+        return ResponseEntity.noContent().build();
+    }
+
+
+
 }
