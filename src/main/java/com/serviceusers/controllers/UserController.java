@@ -27,6 +27,11 @@ public class UserController {
         return ResponseEntity.ok(userDetailsServiceImp.getUserById(id).orElseThrow());
     }
 
+    @GetMapping("ambulancier/{id}")
+    public ResponseEntity<User> getAmbulancierById(@PathVariable Long id){
+        return ResponseEntity.ok(userDetailsServiceImp.getUserById(id).orElseThrow());
+    }
+
     @PatchMapping("admin/users/{id}")
     public ResponseEntity<User> editUserById(@PathVariable Long id , @RequestBody UserDTO userDTO){
         return ResponseEntity.ok(userDetailsServiceImp.editUserById(id,userDTO));
